@@ -102,23 +102,21 @@ DOCKER_OPTS="--insecure-registry=a.example.com --insecure-registry=b.example.com
 ## 7. pull image 
 refer to this link
 https://yeasy.gitbooks.io/docker_practice/repository/registry.html
-and this:
-To pull images from your repo, use (notice port 8082 being used):
 
+tested on my mac:
+try to 
 ```
-docker pull your-repo:8082/httpd:2.4-alpine
-
-//To push your own images to your repo, you have to tag the image with a tag that points to the repo.
-docker tag your-own-image:1 your-repo:8083/your-own-image:1
-docker push your-repo:8083/your-own-image:1
-//To pull your own images from the repo, you can use:
-docker tag your-own-image:1 your-repo:8082/your-own-image:1
-# or
-docker tag your-own-image:1 your-repo:8083/your-own-image:1
+$ docker pull nexus.local:8083/hello-world
+Using default tag: latest
+Error response from daemon: manifest for nexus.local:8083/hello-world:latest not found: manifest unknown: manifest unknown
+$ docker pull hello-world
+$ docker image ls
+$ docker tag hello-world nexus.local:8083/hello-world
+$ docker login nexus.local:8083
+$ docker push nexus.local:8083/hello-world
 ```
-how to use docker-group will be added later.
+if you switch to nexus.local:8082, that 'manifest unknown' error won't appear. Because that 8082 is connected via docker-hub which has proxy to registry-1.docker.io to download the images.
 
-For now, just stick to private-repo 8083.
 
 
 
