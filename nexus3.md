@@ -15,9 +15,11 @@ insert following
 }
 ```
 
-5. using the <docker info> to check the insecure-registries effective or not.
+5. using the $docker info to check the insecure-registries effective or not.
 
 ```
+$docker info
+
  Registry: https://index.docker.io/v1/
  Labels:
  Experimental: false
