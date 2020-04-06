@@ -4,7 +4,9 @@
 
 1. suggest starting with clean docker env.
 2. setup hostname, such as nexus.local, add that to your hosts file.
-3. modify the /etc/docker/daemon.json
+
+3. install the docker-ce
+4. modify the /etc/docker/daemon.json
 
 insert following
 ```
@@ -12,6 +14,19 @@ insert following
     "insecure-registries" : [ "nexus.local:8082","nexus.local:8083" ]
 }
 ```
+
+5. using the <docker info> to check the insecure-registries effective or not.
+
+```
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  nexus.local:8082
+  nexus.local:8083
+  127.0.0.0/8
+```
+
 
 ## 1. start the docker image
 
