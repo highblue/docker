@@ -69,3 +69,21 @@ if met: error WARNING! Using --password via the CLI is insecure. Use --password-
 echo 'admin'>pass.txt
 cat pass.txt | docker login -u admin --password-stdin nexus.local:8082
 ```
+
+## 5. docker login
+Now we have to authenticate your machine to the repo with:
+```
+docker login -u admin -p admin123 your-repo:8082
+docker login -u admin -p admin123 your-repo:8083
+This will create an entry in ~/.docker/config.json:
+
+{
+	"auths": {
+		"your-repo:8082": {
+			"auth": "YWRtaW46YWRtaW4xMjM="
+		},
+		"your-repo:8083": {
+			"auth": "YWRtaW46YWRtaW4xMjM="
+		}
+}
+```
