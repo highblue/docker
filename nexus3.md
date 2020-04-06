@@ -100,20 +100,25 @@ go to the last section
 DOCKER_OPTS="--insecure-registry=a.example.com --insecure-registry=b.example.com"
 ```
 ## 7. pull image 
-follow this 
-
-```
+refer to this link
+https://yeasy.gitbooks.io/docker_practice/repository/registry.html
+and this:
 To pull images from your repo, use (notice port 8082 being used):
 
+```
 docker pull your-repo:8082/httpd:2.4-alpine
-To push your own images to your repo, you have to tag the image with a tag that points to the repo. This is strange to me, since I was trying to think about Docker tags the same way I do about Git tags, but they seem be somewhat different (notice port 8083 being used):
 
+//To push your own images to your repo, you have to tag the image with a tag that points to the repo.
 docker tag your-own-image:1 your-repo:8083/your-own-image:1
 docker push your-repo:8083/your-own-image:1
-To pull your own images from the repo, you can use:
-
+//To pull your own images from the repo, you can use:
 docker tag your-own-image:1 your-repo:8082/your-own-image:1
 # or
 docker tag your-own-image:1 your-repo:8083/your-own-image:1
-Both ports will work. I suspect that is because using port 8083 will connect directly to the hosted repo, whilst using port 8082 will connect to the group repo, which contains the hosted repo. I suggest you to stick to port 8083 to avoid duplicate images in your machines. If you chose to stick with port 8083 to pull your own images, you probably could skip creating the group repo, if you prefer.
 ```
+how to use docker-group will be added later.
+
+For now, just stick to private-repo 8083.
+
+
+
