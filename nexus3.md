@@ -6,7 +6,7 @@
 2. setup hostname, such as nexus.local, add that to your hosts file.
 3. modify the /etc/docker/daemon.json
 
-//insert following
+insert following
 ```
 {
     "insecure-registries" : [ "nexus.local:8082","nexus.local:8083" ]
@@ -37,18 +37,17 @@ cd nexus-data/
 cat admin.password
 ```
 
-// if met: error WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+## 3. configure nexus3
+follow these two links
+https://blog.sonatype.com/using-nexus-3-as-your-repository-part-3-docker-images
+and
+https://yeasy.gitbooks.io/docker_practice/repository/nexus3_registry.html
+
+## 4. test with docker login
+
+if met: error WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 
 ```
 echo 'admin'>pass.txt
 cat pass.txt | docker login -u admin --password-stdin nexus.local:8082
 ```
-
-## 3. configure nexus3
-follow these two links
-https://blog.sonatype.com/using-nexus-3-as-your-repository-part-3-docker-images
-
-and
-
-https://yeasy.gitbooks.io/docker_practice/repository/nexus3_registry.html
-
