@@ -87,3 +87,16 @@ This will create an entry in ~/.docker/config.json:
 		}
 }
 ```
+## 6. troubleshooting
+if met following issue:
+Docker repository server gave HTTP response to HTTPS client
+then
+should consider checking docker info to validate your insecure conf working or not.
+still not, then following this [link](https://stackoverflow.com/questions/42211380/add-insecure-registry-to-docker)
+go to the last section
+
+```
+# /etc/default/docker    
+DOCKER_OPTS="--insecure-registry=a.example.com --insecure-registry=b.example.com"
+```
+
