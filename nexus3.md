@@ -26,8 +26,7 @@ https://hub.docker.com/r/sonatype/nexus3/
 $ mkdir /some/dir/nexus-data && chown -R 200 /some/dir/nexus-data
 $ docker run -d -p 8081:8081 -p 8082:8082 -p 8083:8083 --name nexus -v /home/user/nexus-data:/nexus-data sonatype/nexus3
 ```
-//这里为什么是200的user group?
-//nexus3的运行用户id为200，所以需要把数据目录的owner改为200。
+//这里为什么是200的user group? 因为nexus3的运行用户id为200，所以需要把数据目录的owner改为200。
 
 ## 2. how to retrieve the password and using passwd to login
 
@@ -38,10 +37,12 @@ cat admin.password
 ```
 
 ## 3. configure nexus3
-follow these two links
-https://blog.sonatype.com/using-nexus-3-as-your-repository-part-3-docker-images
-and
-https://yeasy.gitbooks.io/docker_practice/repository/nexus3_registry.html
+follow these links
+<https://blog.sonatype.com/using-nexus-3-as-your-repository-part-3-docker-images>
+and basic intro基础介绍
+<https://yeasy.gitbooks.io/docker_practice/repository/nexus3_registry.html>
+
+使用maven的方式 <https://www.jianshu.com/p/2f681fe265ce>
 
 ## 4. test with docker login
 
